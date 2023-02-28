@@ -78,6 +78,7 @@ ul {
 
 /* Main */
 .dictionary {
+  display: none;
 }
 
 .dictionary__head {
