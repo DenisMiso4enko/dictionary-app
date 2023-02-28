@@ -1,0 +1,162 @@
+:root {
+  --white-color: #fff;
+  --black-color: #2d2d2d;
+  --light-gray-color: #f4f4f4;
+  --gray-color: #777777;
+  --dark-gray-color: #8d8d8d;
+  --light-purple-color: #9a70c0;
+  --dark-purple-color: #9947eb;
+
+  --border-radius: 10px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+
+/* Header */
+.header {
+    margin-bottom: 40px;
+}
+.header__container {
+}
+.header__top {
+  padding: 30px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+}
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.font-select {
+}
+.theme {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.header__bottom {
+  position: relative;
+}
+.input {
+  width: 100%;
+  padding: 20px;
+
+  border: none;
+  border-radius: var(--border-radius);
+
+  background: var(--light-gray-color);
+}
+
+.header__bottom::after {
+  content: url('./assets/search-icon.svg');
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  
+}
+
+
+
+/* Main */
+.dictionary {
+}
+
+.dictionary__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.word-info {
+
+}
+.word-info__title {
+  font-size: 44px;
+  margin-bottom: 10px;
+}
+
+.word-info__transcription {
+  font-weight: bold;
+  color: var(--dark-purple-color);
+
+}
+
+.section-title {
+  position: relative;
+  font-weight: bold;
+  font-size: 16px;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+.section-title:after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 90%;
+  height: 2px;
+  background: var(--light-gray-color);
+}
+
+.title {
+color: var(--dark-gray-color);
+  margin-bottom: 20px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding-left: 30px;
+
+}
+.list__item {
+  position: relative;
+}
+.list__item:before {
+  content: '•';
+  position: absolute;
+  left: -20px;
+  top: 2px;
+  color: var(--dark-purple-color);
+}
+
+.synonyms {
+  color: var(--dark-purple-color);
+}
+
+.dictionary__source {
+  display: flex;
+  gap: 20px;
+  padding: 20px 0;
+  border-top: 2px solid var(--light-gray-color);
+}
+.link {
+  color: var(--black-color);
+}
+
+.meaning-span {
+  margin-top: 10px;
+  color: var(--gray-color);
+}
