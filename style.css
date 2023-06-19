@@ -10,6 +10,11 @@
   --border-radius: 10px;
 }
 
+body {
+  transition: background .3s ease, color .3s ease;
+  height: 100vh;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -24,6 +29,19 @@ ul {
   max-width: 800px;
   margin: 0 auto;
   padding: 0 15px;
+  height: 100%;
+
+}
+
+/* Body theme */
+body.dark {
+  background-color: #2d2d2d;
+  color: white;
+}
+
+.input{
+  background: palegreen;
+
 }
 
 
@@ -56,27 +74,92 @@ ul {
 .header__bottom {
   position: relative;
 }
+
+/*INPUT ------ */
+
 .input {
+  position: relative;
+  border: 1px solid transparent;
+  outline: none;
   width: 100%;
   padding: 20px;
 
-  border: none;
   border-radius: var(--border-radius);
-
   background: var(--light-gray-color);
+
+  transition: background .3s ease, color .3s ease, border .3s ease;
 }
 
-.header__bottom::after {
-  content: url('./assets/search-icon.svg');
+.input:hover, .input:focus {
+  border: 1px solid var(--gray-color);
+}
+
+body.dark .input{
+  color: white;
+  background:  var(--gray-color);
+}
+body.dark .theme__moon{
+  color: var(--dark-purple-color);
+
+}
+body.dark .input::placeholder{
+  color: white;
+}
+
+body.dark .input-icon {
+  color: #C2BCCF;
+}
+
+.input-icon {
   position: absolute;
   top: 20px;
   right: 20px;
-  
+  color: #48365C;
+}
+
+/* btn play------- */
+.btn-play {
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  background: #dcccf5;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+
+  transition: background-color .3s ease, box-shadow .3s ease;
+}
+
+.btn-play:hover {
+  -webkit-box-shadow: -1px -1px 24px -2px rgba(141, 77, 209, 0.2);
+  -moz-box-shadow: -1px -1px 24px -2px rgba(141, 77, 209, 0.2);
+  box-shadow: -1px -1px 24px -2px rgba(141, 77, 209, 0.2);
 }
 
 
+.btn-icon {
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-left: 16px solid var(--dark-purple-color);
+  border-bottom: 10px solid transparent;
+  position: absolute;
+  top: 50%;
+  left: 55%;
+  transform: translate(-55%, -50%);
+  transition: border .3s ease;
+}
+body.dark .btn-play {
+  background: #2B153C;
+}
 
-/* Main */
+body.dark .btn-icon {
+  border-left: 16px solid #8D4DD1;
+}
+
+
+  /* Main */
 .dictionary {
   display: none;
 }
@@ -92,7 +175,7 @@ ul {
 
 }
 .word-info__title {
-  font-size: 44px;
+  font-size: 90px;
   margin-bottom: 10px;
 }
 
@@ -154,10 +237,105 @@ color: var(--dark-gray-color);
   border-top: 2px solid var(--light-gray-color);
 }
 .link {
-  color: var(--black-color);
+  color: inherit;
 }
 
 .meaning-span {
   margin-top: 10px;
   color: var(--gray-color);
+}
+
+
+
+/* theme toggle switch */
+.toggle-pill-color input[type="checkbox"] {
+  display: none;
+}
+.toggle-pill-color input[type="checkbox"] + label {
+  display: block;
+  position: relative;
+  width: 3em;
+  height: 1.6em;
+  border-radius: 1em;
+  background: var(--gray-color);
+  box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-transition: background 0.1s ease-in-out;
+  transition: background 0.1s ease-in-out;
+}
+.toggle-pill-color input[type="checkbox"] + label:before {
+  content: "";
+  display: block;
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 1em;
+  background: #fff;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  left: 0.2em;
+  top: 0.2em;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.toggle-pill-color input[type="checkbox"]:checked + label {
+  background: var(--dark-purple-color);
+}
+.toggle-pill-color input[type="checkbox"]:checked + label:before {
+  box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.2);
+  left: 1.6em;
+}
+
+/* Loader */
+
+.lds-ripple {
+
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  width: 80px;
+  height: 80px;
+}
+.lds-ripple div {
+  position: absolute;
+  border: 4px solid var(--dark-purple-color);
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.lds-ripple div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+@keyframes lds-ripple {
+  0% {
+    top: 36px;
+    left: 36px;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  4.9% {
+    top: 36px;
+    left: 36px;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  5% {
+    top: 36px;
+    left: 36px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 0px;
+    left: 0px;
+    width: 72px;
+    height: 72px;
+    opacity: 0;
+  }
 }

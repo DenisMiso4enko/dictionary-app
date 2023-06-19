@@ -1,64 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="./style.css"/>
-    <title>Dictionary App</title>
-    <script src="./app.js" defer></script>
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <link rel="stylesheet" href="./style.css"/>
+  <title>Dictionary App</title>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="js/app.js" defer></script>
 </head>
-<body>
+<body class="light">
 <div class="container">
-    <header class="header header__container">
-        <div class="header__top">
-            <div class="logo">
-                <img src="./assets/logo.svg" alt="logo"/>
+  <header class="header header__container">
+    <div class="header__top">
+      <div class="logo">
+        <!--            Сюда вставить sprite-->
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+              d="M15.3488 24H8.65116C2.58977 24 0 21.4102 0 15.3488V8.65116C0 2.58977 2.58977 0 8.65116 0H15.3488C21.4102 0 24 2.58977 24 8.65116V15.3488C24 21.4102 21.4102 24 15.3488 24ZM8.65116 1.67442C3.50512 1.67442 1.67442 3.50512 1.67442 8.65116V15.3488C1.67442 20.4949 3.50512 22.3256 8.65116 22.3256H15.3488C20.4949 22.3256 22.3256 20.4949 22.3256 15.3488V8.65116C22.3256 3.50512 20.4949 1.67442 15.3488 1.67442H8.65116Z"
+              fill="currentColor"/>
+          <path
+              d="M12.0001 19.7582C11.7322 19.7582 11.4643 19.6913 11.241 19.5685C9.94615 18.8652 7.65782 18.1061 6.21782 17.9164L6.00572 17.8829C4.91177 17.7489 4.04106 16.7666 4.04106 15.6392V7.04381C4.04106 6.40753 4.30899 5.79358 4.76667 5.36939C5.2355 4.9452 5.83827 4.73312 6.48571 4.78894C8.11548 4.92289 10.482 5.70429 11.8773 6.57498L11.9889 6.64196L12.0337 6.60847C13.4402 5.72661 15.8066 4.93405 17.4476 4.78894H17.5592C18.1396 4.73312 18.7648 4.95637 19.2224 5.36939C19.6913 5.79358 19.948 6.38519 19.948 7.03263V15.6168C19.948 16.7331 19.0773 17.7154 17.9722 17.8606L17.7378 17.8941C16.3089 18.0838 14.0094 18.8429 12.7369 19.5461C12.5248 19.7024 12.268 19.7582 12.0001 19.7582ZM6.29597 6.4745C6.13969 6.4745 6.00569 6.53031 5.90523 6.61961C5.78243 6.73124 5.72665 6.88754 5.72665 7.05498V15.6503C5.72665 15.9182 5.97225 16.1973 6.22899 16.2308L6.44108 16.2643C8.07085 16.4875 10.5713 17.3024 12.0224 18.095C13.3731 17.3136 15.8848 16.4764 17.5257 16.2643L17.7713 16.2308C18.028 16.1973 18.2736 15.9182 18.2736 15.6503V7.06611C18.2736 6.88751 18.2066 6.74241 18.095 6.63079C17.9722 6.51916 17.8159 6.47451 17.6373 6.48567C17.615 6.48567 17.548 6.48567 17.5257 6.48567C16.2308 6.5973 14.0987 7.3117 12.9378 8.04845L12.8262 8.11543C12.335 8.41682 11.6429 8.41683 11.1741 8.1266L11.0066 8.02613C9.83453 7.28939 7.70246 6.58612 6.35176 6.4745C6.32943 6.4745 6.31829 6.4745 6.29597 6.4745Z"
+              fill="currentColor"/>
+          <path
+              d="M12 19.1554C11.5423 19.1554 11.1628 18.7759 11.1628 18.3182V7.6466C11.1628 7.18892 11.5423 6.80939 12 6.80939C12.4577 6.80939 12.8372 7.18892 12.8372 7.6466V18.3182C12.8372 18.7871 12.4577 19.1554 12 19.1554Z"
+              fill="currentColor"/>
+        </svg>
+      </div>
+      <div class="header__actions">
+        <div class="font-select">Serif</div>
+        <div class="theme">
+          <div class="item">
+            <div class="toggle-pill-color">
+              <input type="checkbox" id="theme-checkbox" name="check">
+              <label for="theme-checkbox"></label>
             </div>
-            <div class="header__actions">
-                <div class="font-select">Serif</div>
-                <div class="theme">
-                    <input type="checkbox"/>
-                    <img src="./assets/icon-moon.svg" alt="moon"/>
-                </div>
-            </div>
+          </div>
+          <!--            Сюда вставить sprite-->
+          <svg class="theme__moon" width="20" height="20" viewBox="0 0 20 20" fill="none"
+               xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M1.02172 9.33775C1.30965 13.4567 4.80475 16.8078 8.98766 16.9918C11.9389 17.1197 14.5782 15.7441 16.1618 13.5767C16.8176 12.6889 16.4657 12.097 15.37 12.297C14.8341 12.393 14.2823 12.433 13.7064 12.409C9.79545 12.249 6.59628 8.97785 6.58029 5.11481C6.57229 4.07508 6.78823 3.09133 7.18013 2.19557C7.61201 1.20382 7.09215 0.731945 6.09241 1.15583C2.92523 2.49149 0.757791 5.68267 1.02172 9.33775Z"
+                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </div>
+      </div>
+    </div>
 
-        <div class="header__bottom">
-            <input
-                    class="input"
-                    type="text"
-                    required
-                    placeholder="Enter word..."
-            />
+    <div class="header__bottom">
+      <input
+          class="input"
+          type="text"
+          required
+          placeholder="Enter word..."
+      />
+      <div class="input-icon">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+              d="M11.4351 10.0629H10.7124L10.4563 9.81589C11.3838 8.7401 11.8935 7.36667 11.8925 5.94626C11.8925 4.7702 11.5438 3.62055 10.8904 2.6427C10.237 1.66484 9.30832 0.902692 8.22179 0.452634C7.13525 0.00257642 5.93966 -0.115179 4.7862 0.114258C3.63274 0.343696 2.57322 0.910021 1.74162 1.74162C0.910021 2.57322 0.343696 3.63274 0.114258 4.7862C-0.115179 5.93966 0.00257642 7.13525 0.452634 8.22179C0.902692 9.30832 1.66484 10.237 2.6427 10.8904C3.62055 11.5438 4.7702 11.8925 5.94626 11.8925C7.4191 11.8925 8.77301 11.3528 9.81589 10.4563L10.0629 10.7124V11.4351L14.6369 16L16 14.6369L11.4351 10.0629ZM5.94626 10.0629C3.66838 10.0629 1.82962 8.22413 1.82962 5.94626C1.82962 3.66838 3.66838 1.82962 5.94626 1.82962C8.22413 1.82962 10.0629 3.66838 10.0629 5.94626C10.0629 8.22413 8.22413 10.0629 5.94626 10.0629Z"
+              fill="currentColor"/>
+        </svg>
+
+      </div>
+    </div>
+  </header>
+
+  <div class="message" style="margin-bottom: 20px">
+    <h2 class="message__title">Enter a word...</h2>
+  </div>
+
+  <!--  Loader    -->
+  <div id="loader" class="lds-ripple">
+    <div></div>
+    <div></div>
+  </div>
+
+  <main class="dictionary">
+    <div class="dictionary__container">
+      <div class="dictionary__head">
+        <div class="word-info">
+          <h1 class="word-info__title"></h1>
+          <p class="word-info__transcription"></p>
         </div>
-    </header>
-
-    <main class="dictionary">
-        <div class="dictionary__container">
-            <div class="dictionary__head">
-                <div class="word-info">
-                    <h1 class="word-info__title"></h1>
-                    <p class="word-info__transcription"></p>
-                </div>
-                <div class="player-action">
-                    <audio class="audio" src=""></audio>
-                    <button class="btn btn-play">play</button>
-                </div>
-            </div>
-            <div class="dictionary__list">
-
-            </div>
-            <div class="dictionary__source">
-                <p>Source</p>
-                <a class="link" href="#"></a>
-            </div>
+        <div class="player-action">
+          <audio class="audio" src=""></audio>
+          <div class="button button--play">
+            <div class="button__shape button__shape--one"></div>
+            <div class="button__shape button__shape--two"></div>
+          </div>
+          <button class="btn btn-play">
+            <div class="btn-icon"></div>
+          </button>
         </div>
-
-    </main>
-
+      </div>
+      <div class="dictionary__list"></div>
+      <div class="dictionary__source">
+        <h3 class="title">Source</h3>
+        <a class="link" target="_blank" href=""></a>
+      </div>
+    </div>
+  </main>
 </div>
 </body>
 </html>
-
-
