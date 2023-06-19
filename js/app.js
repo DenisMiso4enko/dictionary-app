@@ -12,14 +12,20 @@ const themeCheckEl = document.querySelector("#theme-checkbox");
 const URL = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 let searchQuery = "";
 
+if (localStorage.getItem('theme') === 'dark') {
+  document.body.classList.add('dark');
+  themeCheckEl.setAttribute("checked", "true")
+}
 
 themeCheckEl.addEventListener("change", (e) => {
-  if (event.currentTarget.checked) {
+  if (e.currentTarget.checked) {
     document.body.classList.remove("light");
-    document.body.classList.add("dark");
+    document.body.classList.add('dark');
+    localStorage.setItem("theme", "dark")
   } else {
     document.body.classList.remove("dark");
     document.body.classList.add("light");
+    localStorage.setItem("theme", "light")
   }
 });
 
