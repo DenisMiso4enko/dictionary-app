@@ -13,6 +13,7 @@
 body {
   transition: background .3s ease, color .3s ease;
   height: 100vh;
+  font-family: Serif;
 }
 
 * {
@@ -30,22 +31,13 @@ ul {
   margin: 0 auto;
   padding: 0 15px;
   height: 100%;
-
 }
 
-/* Body theme */
 body.dark {
   background-color: #2d2d2d;
   color: white;
 }
 
-.input{
-  background: palegreen;
-
-}
-
-
-/* Header */
 .header {
     margin-bottom: 40px;
 }
@@ -65,7 +57,29 @@ body.dark {
   gap: 40px;
 }
 .font-select {
+  position: relative;
+  padding-right: 30px;
+  border-right: 2px solid black;
 }
+
+body.dark .font-select {
+  border-right: 2px solid white;
+}
+
+.font-select__value {
+  cursor: pointer;
+}
+
+.select {
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+  display: none;
+}
+.show-select {
+  display: block;
+}
+
 .theme {
   display: flex;
   align-items: center;
@@ -74,8 +88,6 @@ body.dark {
 .header__bottom {
   position: relative;
 }
-
-/*INPUT ------ */
 
 .input {
   position: relative;
@@ -89,27 +101,22 @@ body.dark {
 
   transition: background .3s ease, color .3s ease, border .3s ease;
 }
-
 .input:hover, .input:focus {
   border: 1px solid var(--gray-color);
 }
-
 body.dark .input{
   color: white;
   background:  var(--gray-color);
 }
 body.dark .theme__moon{
   color: var(--dark-purple-color);
-
 }
 body.dark .input::placeholder{
   color: white;
 }
-
 body.dark .input-icon {
   color: #C2BCCF;
 }
-
 .input-icon {
   position: absolute;
   top: 20px;
@@ -117,7 +124,6 @@ body.dark .input-icon {
   color: #48365C;
 }
 
-/* btn play------- */
 .btn-play {
   width: 45px;
   height: 45px;
@@ -130,14 +136,11 @@ body.dark .input-icon {
 
   transition: background-color .3s ease, box-shadow .3s ease;
 }
-
 .btn-play:hover {
   -webkit-box-shadow: -1px -1px 24px -2px rgba(141, 77, 209, 0.2);
   -moz-box-shadow: -1px -1px 24px -2px rgba(141, 77, 209, 0.2);
   box-shadow: -1px -1px 24px -2px rgba(141, 77, 209, 0.2);
 }
-
-
 .btn-icon {
   width: 0;
   height: 0;
@@ -153,26 +156,18 @@ body.dark .input-icon {
 body.dark .btn-play {
   background: #2B153C;
 }
-
 body.dark .btn-icon {
   border-left: 16px solid #8D4DD1;
 }
 
-
-  /* Main */
 .dictionary {
   display: none;
 }
-
 .dictionary__head {
     display: flex;
     align-items: center;
     justify-content: space-between;
   margin-bottom: 20px;
-}
-
-.word-info {
-
 }
 .word-info__title {
   font-size: 90px;
@@ -184,6 +179,7 @@ body.dark .btn-icon {
   color: var(--dark-purple-color);
 
 }
+
 
 .section-title {
   position: relative;
@@ -201,7 +197,6 @@ body.dark .btn-icon {
   height: 2px;
   background: var(--light-gray-color);
 }
-
 .title {
 color: var(--dark-gray-color);
   margin-bottom: 20px;
@@ -213,7 +208,6 @@ color: var(--dark-gray-color);
   gap: 10px;
   margin-bottom: 20px;
   padding-left: 30px;
-
 }
 .list__item {
   position: relative;
@@ -225,11 +219,9 @@ color: var(--dark-gray-color);
   top: 2px;
   color: var(--dark-purple-color);
 }
-
 .synonyms {
   color: var(--dark-purple-color);
 }
-
 .dictionary__source {
   display: flex;
   gap: 20px;
@@ -239,15 +231,12 @@ color: var(--dark-gray-color);
 .link {
   color: inherit;
 }
-
 .meaning-span {
   margin-top: 10px;
   color: var(--gray-color);
 }
 
 
-
-/* theme toggle switch */
 .toggle-pill-color input[type="checkbox"] {
   display: none;
 }
@@ -288,10 +277,7 @@ color: var(--dark-gray-color);
   left: 1.6em;
 }
 
-/* Loader */
-
 .lds-ripple {
-
   display: none;
   position: absolute;
   top: 50%;

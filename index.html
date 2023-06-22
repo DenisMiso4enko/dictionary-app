@@ -15,7 +15,6 @@
   <header class="header header__container">
     <div class="header__top">
       <div class="logo">
-        <!--            Сюда вставить sprite-->
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
               d="M15.3488 24H8.65116C2.58977 24 0 21.4102 0 15.3488V8.65116C0 2.58977 2.58977 0 8.65116 0H15.3488C21.4102 0 24 2.58977 24 8.65116V15.3488C24 21.4102 21.4102 24 15.3488 24ZM8.65116 1.67442C3.50512 1.67442 1.67442 3.50512 1.67442 8.65116V15.3488C1.67442 20.4949 3.50512 22.3256 8.65116 22.3256H15.3488C20.4949 22.3256 22.3256 20.4949 22.3256 15.3488V8.65116C22.3256 3.50512 20.4949 1.67442 15.3488 1.67442H8.65116Z"
@@ -29,7 +28,14 @@
         </svg>
       </div>
       <div class="header__actions">
-        <div class="font-select">Serif</div>
+        <div class="font-select">
+          <h3 id="fontFamilyValue" class="font-select__value">Serif</h3>
+          <select id="font-select" class="select">
+            <option value="Serif">Serif</option>
+            <option value="sans-serif">sans-serif</option>
+            <option value="monospace">monospace</option>
+          </select>
+        </div>
         <div class="theme">
           <div class="item">
             <div class="toggle-pill-color">
@@ -37,7 +43,6 @@
               <label for="theme-checkbox"></label>
             </div>
           </div>
-          <!--            Сюда вставить sprite-->
           <svg class="theme__moon" width="20" height="20" viewBox="0 0 20 20" fill="none"
                xmlns="http://www.w3.org/2000/svg">
             <path
@@ -70,7 +75,6 @@
     <h2 class="message__title">Enter a word...</h2>
   </div>
 
-  <!--  Loader    -->
   <div id="loader" class="lds-ripple">
     <div></div>
     <div></div>

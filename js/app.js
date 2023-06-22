@@ -1,3 +1,5 @@
+const selectEl = document.querySelector("#font-select")
+const fonFamilyValueEl = document.querySelector("#fontFamilyValue")
 const input = document.querySelector(".input");
 const dictionaryEl = document.querySelector(".dictionary");
 const wordEl = document.querySelector(".word-info__title");
@@ -17,6 +19,26 @@ if (localStorage.getItem('theme') === 'dark') {
   themeCheckEl.setAttribute("checked", "true")
 }
 
+// select
+window.addEventListener("click", (e) => {
+  if (!e.target.classList.contains("select") && !e.target.classList.contains("font-select__value")) {
+    selectEl.style.display = "none"
+  }
+})
+fonFamilyValueEl.addEventListener("click", () => {
+  selectEl.style.display = "block"
+})
+
+selectEl.addEventListener("change", ()=> {
+  let index = selectEl.selectedIndex;
+  let options = selectEl.options;
+  fonFamilyValueEl.textContent = options[index].value
+  document.body.style.fontFamily = options[index].value;
+  selectEl.style.display = "none"
+})
+
+
+//theme
 themeCheckEl.addEventListener("change", (e) => {
   if (e.currentTarget.checked) {
     document.body.classList.remove("light");
